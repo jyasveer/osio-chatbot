@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { DialogflowService } from '@app/services';
-import { MessageListComponent, MessageFormComponent, MessageItemComponent } from '@app/components'
+import { ChatService } from './services';
+import { MessageListComponent, MessageFormComponent, MessageItemComponent } from './components';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { MessageListComponent, MessageFormComponent, MessageItemComponent } from
     HttpModule
   ],
   providers: [
-    DialogflowService
+    ChatService
   ],
   bootstrap: [AppComponent]
 })

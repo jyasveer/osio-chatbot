@@ -1,21 +1,21 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Message } from '@app/models';
-import { DialogflowService } from '@app/services';
+import { Message } from '../../models';
+import { ChatService } from '../../services';
 
 @Component({
-  selector: 'message-form',
+  selector: 'app-message-form',
   templateUrl: './message-form.component.html',
   styleUrls: ['./message-form.component.scss']
 })
 export class MessageFormComponent implements OnInit {
 
-  @Input('message')
-  private message : Message;
+  @Input()
+  private message: Message;
 
-  @Input('messages')
-  private messages : Message[];
+  @Input()
+  private messages: Message[];
 
-  constructor(private dialogFlowService: DialogflowService) { }
+  constructor(private chatService: ChatService) { }
 
   ngOnInit() {
   }
@@ -24,11 +24,12 @@ export class MessageFormComponent implements OnInit {
     this.message.timestamp = new Date();
     this.messages.push(this.message);
 
-    this.dialogFlowService.getResponse(this.message.content).subscribe(res => {
-      this.messages.push(
-        new Message(res.result.fulfillment.speech, 'assets/images/bot.png', res.timestamp)
-      );
-    });
+    this.chatService.getResponse(this.message.content)
+      .subscribe(res => {
+        this.messages.push(
+          new Message(res.response, 'assets/images/bot.png', res.timestamp)
+        );
+      });
 
     this.message = new Message('', 'assets/images/user.png');
   }

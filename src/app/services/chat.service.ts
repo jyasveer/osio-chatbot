@@ -4,9 +4,10 @@ import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class DialogflowService {
+export class ChatService {
 
-  private baseURL = 'https://api.dialogflow.com/v1/query?v=20150910';
+  private baseURL = 'http://10.215.99.112:8008/api/v1';
+  private baseURL1 = 'https://api.dialogflow.com/v1/query?v=20150910';
   private token: string = environment.token;
 
   constructor(private http: Http) { }
@@ -16,9 +17,9 @@ export class DialogflowService {
       query: query,
       lang: 'en',
       sessionId: '12345'
-    }
+    };
     return this.http
-      .post(`${this.baseURL}`, data, { headers: this.getHeaders() })
+      .post(`${this.baseURL}/query`, data, { headers: this.getHeaders() })
       .map(res => {
         return res.json();
       });
