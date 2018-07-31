@@ -1,14 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Message } from '@app/models';
+import { Message } from '../../models';
 
 @Component({
-  selector: 'message-item',
+  selector: 'app-message-item',
   templateUrl: './message-item.component.html',
   styleUrls: ['./message-item.component.scss']
 })
 export class MessageItemComponent implements OnInit {
 
-  @Input('message')
+  @Input()
   private message: Message;
 
   constructor() { }
