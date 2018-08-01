@@ -3,8 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { Http } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { MessageListComponent, MessageFormComponent, MessageItemComponent } from './components';
 import { ChatService } from './services';
+import { ChatbotModule } from './chatbot/chatbot.module';
 
 describe('AppComponent', () => {
   let mockHttp: any;
@@ -14,13 +14,11 @@ describe('AppComponent', () => {
 
     TestBed.configureTestingModule({
       imports: [
-        FormsModule
+        FormsModule,
+        ChatbotModule
       ],
       declarations: [
-        AppComponent,
-        MessageListComponent,
-        MessageFormComponent,
-        MessageItemComponent
+        AppComponent
       ],
       providers: [
         ChatService,

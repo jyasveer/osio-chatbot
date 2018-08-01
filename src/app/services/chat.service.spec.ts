@@ -1,15 +1,25 @@
 import { TestBed, inject } from '@angular/core/testing';
+import { Http } from '@angular/http';
 
 import { ChatService } from './chat.service';
 
-describe('DialogflowService', () => {
+describe('Chatbot service', () => {
+  let mockHttp: any;
+
   beforeEach(() => {
+    mockHttp = jasmine.createSpy('Http');
+
     TestBed.configureTestingModule({
-      providers: [ChatService]
+      providers: [
+        ChatService,
+        {
+          provide: Http, useValue: mockHttp
+        }
+      ]
     });
   });
 
-  it('should be created', inject([ChatService], (service: ChatService) => {
+  it('should be created', inject([ ChatService ], (service: ChatService) => {
     expect(service).toBeTruthy();
   }));
 });

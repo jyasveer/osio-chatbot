@@ -4,22 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ChatService } from './services';
-import { MessageListComponent, MessageFormComponent, MessageItemComponent } from './components';
+import { ChatbotModule } from './chatbot/chatbot.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MessageListComponent,
-    MessageFormComponent,
-    MessageItemComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
-  ],
-  providers: [
-    ChatService
+    HttpModule,
+    ChatbotModule
   ],
   bootstrap: [AppComponent]
 })

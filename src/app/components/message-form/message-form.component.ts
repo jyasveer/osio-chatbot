@@ -5,15 +5,15 @@ import { ChatService } from '../../services';
 @Component({
   selector: 'app-message-form',
   templateUrl: './message-form.component.html',
-  styleUrls: ['./message-form.component.scss']
+  styleUrls: ['./message-form.component.less']
 })
 export class MessageFormComponent implements OnInit {
 
   @Input()
-  private message: Message;
+  message: Message;
 
   @Input()
-  private messages: Message[];
+  messages: Message[];
 
   constructor(private chatService: ChatService) { }
 

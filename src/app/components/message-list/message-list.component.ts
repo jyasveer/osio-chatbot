@@ -5,7 +5,7 @@ import { MessageItemComponent } from '../message-item/message-item.component';
 @Component({
   selector: 'app-message-list',
   templateUrl: './message-list.component.html',
-  styleUrls: ['./message-list.component.scss']
+  styleUrls: ['./message-list.component.less']
 })
 export class MessageListComponent implements OnInit, AfterViewInit {
 

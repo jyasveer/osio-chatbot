@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 
 import { MessageFormComponent } from './message-form.component';
 import { ChatService } from '../../services';
+import { Message } from '../../models';
 
 describe('MessageFormComponent', () => {
   let component: MessageFormComponent;
@@ -29,6 +30,9 @@ describe('MessageFormComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MessageFormComponent);
     component = fixture.componentInstance;
+    component.message = <Message>{
+      content: 'hello'
+    };
     fixture.detectChanges();
   });
 
