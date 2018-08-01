@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
 
@@ -12,7 +13,7 @@ export class ChatService {
 
   constructor(private http: Http) { }
 
-  public getResponse(query: string) {
+  public getResponse(query: string): Observable<any> {
     const data = {
       query: query,
       lang: 'en',

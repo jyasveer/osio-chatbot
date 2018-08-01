@@ -4,12 +4,11 @@ import { Message } from '../../models';
 @Component({
   selector: 'app-message-item',
   templateUrl: './message-item.component.html',
-  styleUrls: ['./message-item.component.scss']
+  styleUrls: ['./message-item.component.less']
 })
 export class MessageItemComponent implements OnInit {
 
-  @Input()
-  private message: Message;
+  @Input() message: Message;
 
   constructor() { }
 
